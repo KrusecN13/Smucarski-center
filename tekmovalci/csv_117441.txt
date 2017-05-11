@@ -1,0 +1,320 @@
+kategorija,datum,uvrstitev,drzava,mesto,disciplina,id
+World Cup,26-03-2017,4,SLO,Planica,HS225,4745
+World Cup,25-03-2017,2,SLO,Planica,Team HS225,4744
+World Cup,24-03-2017,3,SLO,Planica,HS225,4743
+Qualification,23-03-2017,3,SLO,Planica,HS225,4742
+World Cup,19-03-2017,38,NOR,Vikersund,HS225,4741
+World Cup,18-03-2017,5,NOR,Vikersund,Team HS225,4740
+Qualification,17-03-2017,5,NOR,Vikersund,HS225,4739
+World Cup,16-03-2017,4,NOR,Trondheim,HS138,4738
+Qualification,15-03-2017,8,NOR,Trondheim,HS138,4737
+Qualification,13-03-2017,1,NOR,Lillehammer,HS138,4735
+World Cup,12-03-2017,3,NOR,Oslo,HS134,4734
+World Cup,11-03-2017,2,NOR,Oslo,Team HS134,4733
+Qualification,10-03-2017,4,NOR,Oslo,HS134,4732
+World Ski Championships,04-03-2017,4,FIN,Lahti,Team HS130,4758
+World Ski Championships,02-03-2017,13,FIN,Lahti,HS130,4757
+World Ski Championships,26-02-2017,1,FIN,Lahti,Team HS100,4755
+World Ski Championships,25-02-2017,3,FIN,Lahti,HS100,4754
+World Cup,12-02-2017,9,JPN,Sapporo,HS134,4728
+World Cup,11-02-2017,6,JPN,Sapporo,HS134,4727
+World Cup,05-02-2017,22,GER,Oberstdorf,HS225,4725
+World Cup,04-02-2017,8,GER,Oberstdorf,HS225,4724
+World Cup,29-01-2017,18,GER,Willingen,HS145,4722
+World Cup,28-01-2017,3,GER,Willingen,Team HS145,4721
+World Cup,22-01-2017,4,POL,Zakopane,HS134,4719
+World Cup,21-01-2017,1,POL,Zakopane,Team HS134,4718
+World Cup,15-01-2017,22,POL,Wisla,HS134,4716
+World Cup,14-01-2017,11,POL,Wisla,HS134,4715
+World Cup,06-01-2017,13,AUT,Bischofshofen,HS140,4713
+World Cup,04-01-2017,29,AUT,Innsbruck,HS130,4711
+Qualification,03-01-2017,6,AUT,Innsbruck,HS130,4710
+World Cup,01-01-2017,4,GER,Garmisch-Partenkirchen,HS140,4709
+Qualification,31-12-2016,1,GER,Garmisch-Partenkirchen,HS140,4708
+World Cup,30-12-2016,6,GER,Oberstdorf,HS137,4707
+Qualification,29-12-2016,6,GER,Oberstdorf,HS137,4706
+World Cup,18-12-2016,5,SUI,Engelberg,HS140,4705
+World Cup,17-12-2016,7,SUI,Engelberg,HS140,4704
+World Cup,11-12-2016,3,NOR,Lillehammer,HS138,4702
+World Cup,10-12-2016,7,NOR,Lillehammer,HS138,4701
+World Cup,04-12-2016,6,GER,Klingenthal,HS140,4699
+World Cup,03-12-2016,2,GER,Klingenthal,Team HS140,4698
+Qualification,02-12-2016,6,GER,Klingenthal,HS140,4697
+World Cup,26-11-2016,15,FIN,Ruka,HS142,4696
+World Cup,25-11-2016,7,FIN,Ruka,HS142,4695
+Qualification,24-11-2016,7,FIN,Ruka,HS142,4694
+Grand Prix,02-10-2016,5,GER,Klingenthal,HS140,4606
+Continental Cup,30-09-2016,1,GER,Klingenthal,HS140,4625
+Continental Cup,25-09-2016,1,POL,Wisla,HS134,4670
+Continental Cup,24-09-2016,7,POL,Wisla,HS134,4669
+Continental Cup,18-09-2016,1,AUT,Stams,HS115,4654
+Continental Cup,17-09-2016,1,AUT,Stams,HS115,4653
+Continental Cup,11-09-2016,1,NOR,Lillehammer,HS138,4660
+Continental Cup,10-09-2016,6,NOR,Lillehammer,HS138,4658
+Grand Prix,30-07-2016,13,GER,Hinterzarten,HS108,4588
+Qualification,29-07-2016,5,GER,Hinterzarten,HS108,4587
+Continental Cup,02-07-2016,12,SLO,Kranj,HS109,4612
+Continental Cup,01-07-2016,13,SLO,Kranj,HS109,4611
+World Cup,19-03-2016,5,SLO,Planica,Team HS225,4460
+World Cup,18-03-2016,28,SLO,Planica,HS225,4459
+World Cup,17-03-2016,28,SLO,Planica,HS225,4458
+Continental Cup,13-03-2016,8,RUS,Chaikovski,HS140,4562
+Continental Cup,12-03-2016,1,RUS,Chaikovski,HS140,4561
+Continental Cup,05-03-2016,5,NOR,Vikersund,HS117,4519
+Continental Cup,04-03-2016,22,NOR,Vikersund,HS117,4518
+World Cup,28-02-2016,21,KAZ,Almaty,HS140,4451
+World Cup,27-02-2016,31,KAZ,Almaty,HS140,4449
+Qualification,26-02-2016,9,KAZ,Almaty,HS140,4447
+World Cup,23-02-2016,30,FIN,Kuopio,HS127,4446
+Qualification,22-02-2016,33,FIN,Kuopio,HS127,4445
+World Cup,21-02-2016,18,FIN,Lahti,HS100,4444
+World Cup,19-02-2016,26,FIN,Lahti,HS130,4402
+World Cup,14-02-2016,15,NOR,Vikersund,HS225,4440
+World Cup,13-02-2016,32,NOR,Vikersund,HS225,4439
+World Cup,12-02-2016,21,NOR,Vikersund,HS225,4435
+Continental Cup,07-02-2016,2,SLO,Planica,HS139,4526
+Continental Cup,06-02-2016,10,SLO,Planica,HS139,4525
+Continental Cup,31-01-2016,1,AUT,Bischofshofen,HS140,4556
+Continental Cup,30-01-2016,11,AUT,Bischofshofen,HS140,4555
+Continental Cup,24-01-2016,10,JPN,Sapporo,HS134,4489
+Continental Cup,23-01-2016,11,JPN,Sapporo,HS134,4488
+Continental Cup,22-01-2016,4,JPN,Sapporo,HS100,4487
+Continental Cup,10-01-2016,58,GER,Garmisch-Partenkirchen,HS140,4496
+Continental Cup,09-01-2016,44,GER,Garmisch-Partenkirchen,HS140,4495
+Qualification,31-12-2015,50,GER,Garmisch-Partenkirchen,HS140,4417
+World Cup,29-12-2015,41,GER,Oberstdorf,HS137,4416
+Qualification,28-12-2015,45,GER,Oberstdorf,HS137,4415
+Continental Cup,20-12-2015,22,FIN,Rovaniemi,HS100,4546
+Continental Cup,13-12-2015,27,NOR,Rena,HS139,4517
+Continental Cup,12-12-2015,7,NOR,Rena,HS111,4516
+Continental Cup,11-12-2015,8,NOR,Rena,HS111,4515
+Grand Prix,27-09-2015,31,AUT,Hinzenbach,HS94,4333
+Qualification,26-09-2015,25,AUT,Hinzenbach,HS94,4339
+Grand Prix,30-08-2015,16,JPN,Hakuba,HS131,4324
+Grand Prix,29-08-2015,28,JPN,Hakuba,HS131,4323
+Grand Prix,15-08-2015,50,SUI,Einsiedeln,HS117,4322
+Grand Prix,14-08-2015,16,FRA,Courchevel,HS132,4321
+Qualification,13-08-2015,11,FRA,Courchevel,HS132,4335
+Grand Prix,08-08-2015,39,GER,Hinterzarten,HS108,4319
+Grand Prix,01-08-2015,15,POL,Wisla,HS134,4316
+World Cup,22-03-2015,22,SLO,Planica,HS225,4193
+World Cup,21-03-2015,6,SLO,Planica,Team HS225,4192
+World Cup,20-03-2015,31,SLO,Planica,HS225,4191
+World Cup,15-03-2015,24,NOR,Oslo,HS134,4189
+World Cup,14-03-2015,7,NOR,Oslo,HS134,4188
+World Cup,10-03-2015,15,FIN,Kuopio,HS100,4186
+World Cup,08-03-2015,19,FIN,Lahti,HS130,4184
+World Cup,07-03-2015,2,FIN,Lahti,Team HS130,4183
+Qualification,06-03-2015,9,FIN,Lahti,HS130,4182
+World Ski Championships,28-02-2015,5,SWE,Falun,Team HS134,4125
+World Ski Championships,26-02-2015,10,SWE,Falun,HS134,4124
+Qualification,25-02-2015,2,SWE,Falun,HS134,4123
+World Cup,15-02-2015,8,NOR,Vikersund,HS225,4181
+World Cup,14-02-2015,13,NOR,Vikersund,HS225,4180
+World Cup,08-02-2015,15,GER,Titisee-Neustadt,HS142,4178
+World Cup,07-02-2015,12,GER,Titisee-Neustadt,HS142,4177
+Qualification,07-02-2015,1,GER,Titisee-Neustadt,HS142,4176
+World Cup,01-02-2015,13,GER,Willingen,HS145,4175
+World Cup,31-01-2015,2,GER,Willingen,Team HS145,4174
+World Cup,30-01-2015,12,GER,Willingen,HS145,4173
+World Cup,25-01-2015,13,JPN,Sapporo,HS134,4172
+World Cup,24-01-2015,31,JPN,Sapporo,HS134,4171
+World Cup,18-01-2015,14,POL,Zakopane,HS134,4169
+World Cup,15-01-2015,6,POL,Wisla,HS134,4166
+World Cup,10-01-2015,9,AUT,Tauplitz/Bad Mitterndorf,HS225,4164
+Qualification,09-01-2015,30,AUT,Tauplitz/Bad Mitterndorf,HS225,4163
+World Cup,06-01-2015,32,AUT,Bischofshofen,HS140,4162
+Qualification,05-01-2015,46,AUT,Bischofshofen,HS140,4161
+Qualification,03-01-2015,53,AUT,Innsbruck,HS130,4159
+Qualification,31-12-2014,50,GER,Garmisch-Partenkirchen,HS140,4157
+World Cup,29-12-2014,44,GER,Oberstdorf,HS137,4156
+Qualification,27-12-2014,31,GER,Oberstdorf,HS137,4155
+World Cup,21-12-2014,6,SUI,Engelberg,HS137,4154
+World Cup,20-12-2014,8,SUI,Engelberg,HS137,4153
+Qualification,19-12-2014,4,SUI,Engelberg,HS137,4152
+World Cup,14-12-2014,21,RUS,Nizhny Tagil,HS134,4151
+World Cup,13-12-2014,14,RUS,Nizhny Tagil,HS134,4150
+World Cup,07-12-2014,8,NOR,Lillehammer,HS138,4148
+World Cup,06-12-2014,40,NOR,Lillehammer,HS138,4147
+World Cup,29-11-2014,11,FIN,Ruka,HS142,4145
+World Cup,28-11-2014,12,FIN,Ruka,HS142,4144
+World Cup,23-11-2014,8,GER,Klingenthal,HS140,4142
+World Cup,22-11-2014,1,GER,Klingenthal,Team HS140,4141
+Qualification,21-11-2014,6,GER,Klingenthal,HS140,4140
+Grand Prix,04-10-2014,21,GER,Klingenthal,HS140,4039
+Qualification,03-10-2014,36,GER,Klingenthal,HS140,4038
+Continental Cup,28-09-2014,2,NOR,Trondheim,HS138,4073
+Continental Cup,27-09-2014,10,NOR,Trondheim,HS138,4071
+Continental Cup,21-09-2014,18,AUT,Stams,HS115,4102
+Continental Cup,20-09-2014,11,AUT,Stams,HS115,4101
+Continental Cup,14-09-2014,19,GER,Klingenthal,HS140,4053
+Continental Cup,13-09-2014,3,GER,Klingenthal,HS140,4048
+Grand Prix,24-08-2014,17,JPN,Hakuba,HS131,4029
+Grand Prix,23-08-2014,12,JPN,Hakuba,HS131,4028
+Grand Prix,15-08-2014,24,FRA,Courchevel,HS132,4026
+Grand Prix,09-08-2014,31,SUI,Einsiedeln,HS117,4024
+Qualification,08-08-2014,37,SUI,Einsiedeln,HS117,4023
+Grand Prix,26-07-2014,24,POL,Wisla,HS134,4022
+Qualification,24-07-2014,24,POL,Wisla,HS134,4020
+World Cup,23-03-2014,22,SLO,Planica,HS139,3902
+Qualification,20-03-2014,42,SLO,Planica,HS139,3899
+FIS Ski-Flying World Championships,14-03-2014,38,CZE,Harrachov,HS205,3912
+Qualification,13-03-2014,22,CZE,Harrachov,HS205,3911
+World Cup,09-03-2014,29,NOR,Oslo,HS134,3898
+Qualification,08-03-2014,24,NOR,Oslo,HS134,3897
+Qualification,06-03-2014,47,NOR,Trondheim,HS138,3895
+Continental Cup,02-03-2014,8,SWE,Falun,HS100,4009
+Continental Cup,01-03-2014,14,SWE,Falun,HS100,3962
+Continental Cup,21-02-2014,14,AUT,Seefeld,HS109,3932
+Continental Cup,20-02-2014,40,AUT,Seefeld,HS109,3931
+Continental Cup,16-02-2014,12,GER,Brotterode,HS117,3809
+Continental Cup,15-02-2014,46,GER,Brotterode,HS117,3808
+Continental Cup,14-02-2014,2,GER,Brotterode,HS117,3954
+Continental Cup,08-02-2014,22,USA,"Iron Mountain,MI",HS133,3935
+Continental Cup,07-02-2014,39,USA,"Iron Mountain,MI",HS133,4002
+World Cup,02-02-2014,35,GER,Willingen,HS145,3887
+World Cup,01-02-2014,11,GER,Willingen,HS145,3886
+Qualification,31-01-2014,18,GER,Willingen,HS145,3885
+World Cup,26-01-2014,8,JPN,Sapporo,HS134,3884
+World Cup,25-01-2014,8,JPN,Sapporo,HS134,3883
+Qualification,24-01-2014,12,JPN,Sapporo,HS134,3882
+Continental Cup,19-01-2014,1,JPN,Sapporo,HS134,3981
+Continental Cup,18-01-2014,1,JPN,Sapporo,HS134,3980
+Continental Cup,17-01-2014,13,JPN,Sapporo,HS100,3979
+Continental Cup,16-01-2014,15,JPN,Sapporo,HS100,4012
+Continental Cup,12-01-2014,8,FRA,Courchevel,HS96,4006
+Continental Cup,11-01-2014,12,FRA,Courchevel,HS96,4005
+World Cup,01-01-2014,45,GER,Garmisch-Partenkirchen,HS140,3906
+Qualification,31-12-2013,26,GER,Garmisch-Partenkirchen,HS140,3905
+Qualification,28-12-2013,53,GER,Oberstdorf,HS137,3903
+Continental Cup,21-12-2013,8,FIN,Lahti,HS130,3972
+Continental Cup,20-12-2013,39,FIN,Lahti,HS130,3971
+Continental Cup,14-12-2013,18,NOR,Rena,HS111,3967
+Continental Cup,13-12-2013,77,NOR,Rena,HS111,4003
+Grand Prix,03-10-2013,22,GER,Klingenthal,HS140,3805
+Qualification,02-10-2013,23,GER,Klingenthal,HS140,3914
+Continental Cup,22-09-2013,4,GER,Klingenthal,HS140,3802
+Continental Cup,21-09-2013,23,GER,Klingenthal,HS140,3801
+Continental Cup,15-09-2013,17,NOR,Lillehammer,HS138,3787
+Continental Cup,14-09-2013,47,NOR,Lillehammer,HS138,3785
+Grand Prix,24-08-2013,19,JPN,Hakuba,HS131,3765
+Grand Prix,23-08-2013,15,JPN,Hakuba,HS131,3764
+Continental Cup,04-08-2013,15,FIN,Kuopio,HS127,3817
+Continental Cup,03-08-2013,6,FIN,Kuopio,HS127,3816
+FIS Cup,02-08-2013,8,FIN,Kuopio,HS127,3815
+Continental Cup,07-07-2013,11,SLO,Kranj,HS109,3782
+Continental Cup,06-07-2013,24,SLO,Kranj,HS109,3781
+Continental Cup,30-06-2013,6,AUT,Stams,HS115,3780
+Continental Cup,29-06-2013,30,AUT,Stams,HS115,3774
+FIS Cup,16-03-2013,2,GER,Oberstdorf,HS106,3514
+FIS Cup,16-03-2013,2,GER,Oberstdorf,HS106,3513
+Continental Cup,03-03-2013,15,CZE,Liberec,HS100,3521
+Continental Cup,02-03-2013,30,CZE,Liberec,HS100,3520
+FIS Cup,24-02-2013,7,SLO,Kranj,HS109,3692
+FIS Cup,23-02-2013,5,SLO,Kranj,HS109,3691
+FIS Cup,10-02-2013,11,POL,Zakopane,HS134,3705
+FIS Cup,09-02-2013,3,POL,Zakopane,HS134,3704
+Continental Cup,03-02-2013,49,SLO,Planica,HS139,3690
+Continental Cup,03-02-2013,66,SLO,Planica,HS139,3689
+Continental Cup,27-01-2013,14,GER,Neustadt,HS142,3508
+Continental Cup,26-01-2013,12,GER,Neustadt,HS142,3507
+Continental Cup,19-01-2013,19,AUT,Bischofshofen,HS140,3653
+Continental Cup,26-02-2012,27,POL,Wisla,HS134,3464
+Continental Cup,25-02-2012,26,POL,Wisla,HS134,3463
+Continental Cup,19-02-2012,13,NOR,Oslo,HS106,3438
+Continental Cup,18-02-2012,8,NOR,Oslo,HS106,3437
+Continental Cup,17-02-2012,5,NOR,Oslo,HS106,3448
+Continental Cup,12-02-2012,2,USA,"Iron Mountain, MI",HS133,3447
+Continental Cup,05-02-2012,30,GER,Brotterode,HS110,3283
+Continental Cup,04-02-2012,34,GER,Brotterode,HS110,3282
+Continental Cup,29-01-2012,13,AUT,Bischofshofen,HS140,3401
+Continental Cup,28-01-2012,32,AUT,Bischofshofen,HS140,3400
+World Cup,15-01-2012,50,AUT,Tauplitz/Bad Mitterndorf,HS200,3356
+World Cup,15-01-2012,48,AUT,Tauplitz/Bad Mitterndorf,HS200,3355
+Qualification,31-12-2011,65,GER,Garmisch-Partenkirchen,HS140,3323
+World Cup,30-12-2011,30,GER,Oberstdorf,HS137,3322
+Qualification,29-12-2011,38,GER,Oberstdorf,HS137,3321
+Continental Cup,18-12-2011,24,TUR,Erzurum,HS125,3432
+Continental Cup,18-12-2011,17,TUR,Erzurum,HS95,3431
+Continental Cup,14-12-2011,3,KAZ,Almaty,HS140,3481
+Continental Cup,13-12-2011,23,KAZ,Almaty,HS140,3480
+Continental Cup,29-11-2011,40,FIN,Rovaniemi,HS100,3405
+Continental Cup,28-11-2011,49,FIN,Rovaniemi,HS100,3404
+Continental Cup,25-09-2011,51,GER,Klingenthal,HS140,3274
+Continental Cup,24-09-2011,18,GER,Klingenthal,HS140,3273
+Continental Cup,11-09-2011,49,NOR,Trondheim,HS138,3304
+Continental Cup,10-09-2011,53,NOR,Trondheim,HS138,3303
+Grand Prix,30-08-2011,19,KAZ,Almaty,HS140,3302
+Continental Cup,31-07-2011,28,FRA,Courchevel,HS132,3229
+Continental Cup,30-07-2011,14,FRA,Courchevel,HS132,3228
+Continental Cup,10-07-2011,16,AUT,Stams-Brunnentalschanze,HS115,3313
+Continental Cup,09-07-2011,12,AUT,Stams-Brunnentalschanze,HS115,3309
+Continental Cup,03-07-2011,57,SLO,Kranj,HS109,3291
+Continental Cup,02-07-2011,23,SLO,Kranj,HS109,3290
+Continental Cup,12-03-2011,11,POL,Wisla,HS134,3079
+Continental Cup,11-03-2011,23,POL,Wisla,HS134,3078
+Continental Cup,06-03-2011,21,FIN,Kuopio,HS127,3210
+Continental Cup,05-03-2011,45,FIN,Kuopio,HS127,3209
+Continental Cup,27-02-2011,2,POL,Zakopane,HS134,3087
+Continental Cup,26-02-2011,17,POL,Zakopane,HS134,3086
+Continental Cup,20-02-2011,8,SLO,Kranj,HS109,3098
+Continental Cup,19-02-2011,30,SLO,Kranj,HS109,3097
+Alpen Cup,13-02-2011,40,SLO,Kranj,HS109,3100
+Alpen Cup,12-02-2011,5,SLO,Kranj,HS109,3099
+Continental Cup,06-02-2011,28,GER,Brotterode,HS117,3127
+Continental Cup,30-01-2011,5,AUT,Bischofshofen,HS140,3170
+Continental Cup,29-01-2011,13,AUT,Bischofshofen,HS140,3169
+Continental Cup,23-01-2011,28,GER,Neustadt,HS142,3123
+Continental Cup,22-01-2011,29,GER,Neustadt,HS142,3122
+Alpen Cup,15-01-2011,48,GER,Hinterzarten,HS102,3217
+Alpen Cup,14-01-2011,22,GER,Hinterzarten,HS102,3119
+Continental Cup,28-12-2010,40,SUI,Engelberg,HS137,3212
+Alpen Cup,18-12-2010,11,AUT,Seefeld,HS106,3223
+Alpen Cup,17-12-2010,4,AUT,Seefeld,HS106,3222
+Alpen Cup,03-10-2010,27,GER,Oberstdorf,HS100,3204
+Alpen Cup,02-10-2010,37,GER,Oberstdorf,HS100,3114
+Alpen Cup,12-09-2010,47,SLO,Kranj,HS109,3092
+Alpen Cup,11-09-2010,30,SLO,Kranj,HS109,3091
+Continental Cup,10-07-2010,53,GER,Garmisch-Partenkirchen,HS140,3105
+Continental Cup,09-07-2010,41,GER,Garmisch-Partenkirchen,HS140,3104
+Continental Cup,14-03-2010,29,FIN,Kuusamo,HS142,2975
+Continental Cup,13-03-2010,28,FIN,Kuusamo,HS142,2974
+Continental Cup,07-03-2010,31,NOR,Oslo,HS134,2963
+Continental Cup,06-03-2010,26,NOR,Oslo,HS134,2962
+Alpen Cup,28-02-2010,4,GER,Lauscha,HS102,2993
+Alpen Cup,27-02-2010,11,GER,Lauscha,HS102,2992
+Continental Cup,20-02-2010,48,GER,Brotterode,HS110,2922
+Qualification,02-02-2010,47,GER,Klingenthal,HS140,2830
+Continental Cup,24-01-2010,55,AUT,Bischofshofen,HS140,2941
+Continental Cup,23-01-2010,50,AUT,Bischofshofen,HS140,2940
+Continental Cup,16-01-2010,30,GER,Neustadt,HS142,2920
+Alpen Cup,10-01-2010,4,SLO,Kranj,HS109,2893
+Alpen Cup,09-01-2010,21,SLO,Kranj,HS109,2892
+Alpen Cup,19-12-2009,6,AUT,Seefeld,HS100,2999
+Alpen Cup,18-12-2009,4,AUT,Seefeld,HS100,2998
+Alpen Cup,13-09-2009,8,SUI,Einsiedeln,HS117,2878
+Alpen Cup,12-09-2009,3,SUI,Einsiedeln,HS117,2877
+FIS Cup,16-08-2009,12,GER,Oberwiesenthal,HS106,2913
+FIS Cup,15-08-2009,11,GER,Oberwiesenthal,HS106,2912
+Continental Cup,08-03-2009,15,NOR,Trondheim,HS140,2712
+Continental Cup,07-03-2009,15,NOR,Trondheim,HS140,2711
+Continental Cup,15-02-2009,24,USA,"Iron Mountain, MI",HS133,2640
+Continental Cup,14-02-2009,23,USA,"Iron Mountain, MI",HS133,2639
+Continental Cup,04-01-2009,44,GER,Braunlage,HS100,2614
+Continental Cup,03-01-2009,19,GER,Braunlage,HS100,2613
+Continental Cup,28-12-2008,20,SUI,Engelberg,HS137,2681
+Continental Cup,27-12-2008,56,SUI,Engelberg,HS137,2680
+Alpen Cup,20-12-2008,16,AUT,Seefeld,HS100,2632
+Alpen Cup,19-12-2008,10,AUT,Seefeld,HS100,2631
+Alpen Cup,06-09-2008,26,ITA,Predazzo - Centro del Salto,HS106,2750
+Alpen Cup,05-09-2008,19,ITA,Predazzo - Centro del Salto,HS106,2749
+FIS Cup,23-08-2008,24,ITA,Val di Fiemme,HS106,2665
+FIS Cup,22-08-2008,18,ITA,Val di Fiemme,HS106,2664
+FIS Race,22-12-2007,50,AUT,Seefeld,HS98,2509
+FIS Race,21-12-2007,43,AUT,Seefeld,HS98,2508
+FIS Race,14-10-2007,17,GER,Oberstdorf,HS100,2474
+FIS Race,13-10-2007,21,GER,Oberstdorf,HS100,2473
+FIS Race,09-09-2007,37,GER,Berchtesgaden,HS98,2468
+FIS Race,08-09-2007,25,GER,Berchtesgaden,HS98,2467
+Juniors,03-03-2007,6,ITA,Dobbiaco/Toblach,HS74,2338
+FIS Cup,30-06-2006,27,AUT,Bischofshofen,HS78,2312
