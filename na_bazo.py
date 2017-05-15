@@ -14,12 +14,38 @@ psycopg2.extensions.register_type(psycopg2.extensions.UNICODE) # se znebimo prob
 # debug(True)
 
 
+### ko dodajaš najprej preveri, če je podatek že notri
+
+def dodaj_tekmovalca(id):
+    #polne tabelo tekmovalci
+    with open('tekmovalci/info_{i}.txt'.format(i=id),'r') as tekmovalec:
+        reader = csv.DictReader(tekmovalec)
+        for vrstica in reader:
+            cur.execute("INSERT INTO tekmovalci VALUES (%s, %s, %s, %s, %s, %s)",
+            [id, vrstica["rojstni_dan"], vrstica["spol"], vrstica["status"], vrstica["drzava"],
+            vrstica["klub"]])
+
+            
+    #polne tabelo tekme
+    with open('tekmovalci/csv_{i}.txt'.format(i=id),'r') as tekme:
+        reader = csv.DictReader(tekme)
+        for vrstica in reader:
+            cur.execute("INSERT INTO tekme VALUES (%s, %s, %s, %s, %s, %s)",
+            [vrstica["id"], vrstica["datum"], vrstica["uvrstitev"], vrstica["drzava"], vrstica["mesto"],
+            vrstica["disciplina"]])
+            dodaj_tekmo(vrstica["id"])
+    
+    
+    #polne tabelo rezultati
 def dodaj_tekmo(id):
     with open('tekme/tekma_{i}.txt'.format(i=id),'r') as tekme:
         reader = csv.DictReader(tekme)
         for vrstica in reader:
-            cur.execute("INSERT INTO  rezultati VALUES({i},{mesto}, {id_tekmovalca}, {prvi_skok}, {prve_tocke}, {drugi_skok}, {druge_tocke}, {skupaj_tocke})".format(i=id,mesto=vrstica[mesto],id_tekmovalca=vrstica[id_tekmovalca], prvi_skok = vrstica[prvi_skok], drugi_skok = vrstica[drugi_skok],druge_tocke = vrstica[druge_tocke],skupaj_tocke = vrstica[skupaj_tocke]))
-
+            cur.execute("INSERT INTO  rezultati VALUES (%s, %s, %s, %s, %s, %s, %s)",
+            [id, vrstica["mesto"], vrstica["id_tekmovalca"], vrstica["prvi_skok"],
+            vrstica["drugi_skok"], vrstica["druge_tocke"], vrstica["skupaj_tocke"]])
+            
+    conn.commit()
             
     print('Tekma {id} je bila dodana.'.format(id))
 
