@@ -40,6 +40,7 @@ def shrani_skakalca(id):
                     nadaljujem = False
                     os.remove('{ident}{st}.txt'.format(ident=id,st=str(i)))
                 i=i+1
+            zdruzi_strani(id)
 
 
 vzorec_iskanja= re.compile(r"<tr><td class='..'>(?P<datum>.*)&nbsp;</td>\n<td class='..'><a href=.*raceid=(?P<id>.*\d).>(?P<mesto>.*)</a>.*\n.*ys.>(?P<drzava>.*)&.*\n.*>(?P<kategorija>.*)&nb.*\n.*>(?P<disciplina>.*)&nb.*\n.*>(?P<uvrstitev>\d*)&")
@@ -68,23 +69,24 @@ def zdruzi_strani(id):
 def tekme_csv(id):
      with open('tekmovalci/csv_{id}.txt'.format(id=id),'r') as csv_dat:
             reader = csv.DictReader(csv_dat)
-            
             for row in reader:
-                if not os.path.isfile('tekme/tekma_{id}.txt'.format(id=row['id'])):
-                        shrani('http://data.fis-ski.com/dynamic/results.html?sector=JP&raceid={raceid}'.format(raceid=row['id']), '{raceid}'.format(raceid=row['id']))
-                        with open('tekme/tekma_{id}.txt'.format(id=row['id']),'w') as csv_dat2:
-                            writer = csv.DictWriter(csv_dat2,fieldnames=imena_tekme)
-                            writer.writeheader()
-                        
-                            for ujemanje in re.finditer(tekme,vsebina_datoteke('{id}'.format(id=row['id']))):
-                                 dict=ujemanje.groupdict()
-                                 writer.writerow(dict)
-                        os.remove(row['id'])
+                shrani_tekmo(id)
+
                     
 
 
 
-
+def shrani_tekmo(id):
+    if not os.path.isfile('tekme/tekma_{id}.txt'.format(id=id)):
+                        shrani('http://data.fis-ski.com/dynamic/results.html?sector=JP&raceid={raceid}'.format(raceid=id), '{raceid}'.format(raceid=id))
+                        with open('tekme/tekma_{id}.txt'.format(id=id),'w') as csv_dat2:
+                            writer = csv.DictWriter(csv_dat2,fieldnames=imena_tekme)
+                            writer.writeheader()
+                        
+                            for ujemanje in re.finditer(tekme,vsebina_datoteke('{id}'.format(id=id))):
+                                 dict=ujemanje.groupdict()
+                                 writer.writerow(dict)
+                        os.remove(str(id))
 
 def shrani_vse(id):
     shrani_skakalca(id)
