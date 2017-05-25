@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- encoding: utf-8 -*-
 
-
+from bottle import *
 # uvozimo ustrezne podatke za povezavo
 import auth as auth
 import csv
@@ -35,7 +35,7 @@ def dodaj_tekmovalca(id):
     with open('tekmovalci/csv_{i}.txt'.format(i=id),'r') as tekme:
         reader = csv.DictReader(tekme)
         for vrstica in reader:
-            cur.execute("Select * from tekme where id = %s",[vrstica['id']])
+            cur.execute("Select * from tekme where id_tekme = %s",[vrstica['id']])
             zeNot=cur.fetchone()
             if zeNot is None:
                 shrani_tekmo(vrstica['id'])
@@ -58,7 +58,21 @@ def dodaj_tekmoR(id):
             
 
             
+##################
+            
 
+#@get('/')
+#def index():
+#    cur.execute("SELECT * FROM oseba ORDER BY priimek, ime")
+#    return template('glavna.html', skakalci=cur)
+
+#@get('/transakcije/:x/')
+#def transakcije(x):
+#    cur.execute("SELECT * FROM transakcija WHERE znesek > %s ORDER BY znesek, id", [int(x)])
+#    return template('tekmovalec.html', x=x, tekmovalec=cur)
+
+
+            
 
 
 
@@ -70,6 +84,7 @@ conn = psycopg2.connect(database=auth.db, host=auth.host, user=auth.user, passwo
 #conn.set_isolation_level(psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT) # onemogočimo transakcije
 cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor) 
 
-
+# poženemo strežnik na portu 8080, glej http://localhost:8080/
+#run(host='localhost', port=8080)
 
 
