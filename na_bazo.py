@@ -19,7 +19,7 @@ psycopg2.extensions.register_type(psycopg2.extensions.UNICODE) # se znebimo prob
 
 #polne tabelo tekmovalci
 def dodaj_tekmovalca(id):
-    cur.execute("Select * from tekmovalci where id = '%s'",[id])
+    cur.execute("Select * from tekmovalci where id = %s",[id])
     zeNot=cur.fetchone()
     if zeNot is None:
         shrani_skakalca(id)
@@ -58,18 +58,20 @@ def dodaj_tekmoR(id):
             
 
             
-##################
+##################SPLETNA STRAN LAHKO JO DAMO DRUGAM CE NAM USPE
             
 
-#@get('/')
-#def index():
-#    cur.execute("SELECT * FROM oseba ORDER BY priimek, ime")
-#    return template('glavna.html', skakalci=cur)
+@get('/')
+def index():
+    cur.execute("SELECT id,drzava FROM tekmovalci")
+    return template('glavna.html', skakalci=cur)
 
-#@get('/transakcije/:x/')
-#def transakcije(x):
-#    cur.execute("SELECT * FROM transakcija WHERE znesek > %s ORDER BY znesek, id", [int(x)])
-#    return template('tekmovalec.html', x=x, tekmovalec=cur)
+@get('/tekmovalci/')
+def get_id():
+    id = request.query.get("vrednost")
+    dodaj_tekmovalca(id)
+    cur.execute("SELECT rojstni_dan,spol,status,drzava,klub FROM tekmovalci where id=%s",[id])
+    return  template('tekmovalec.html', tekmovalec=cur)
 
 
             
@@ -84,7 +86,7 @@ conn = psycopg2.connect(database=auth.db, host=auth.host, user=auth.user, passwo
 #conn.set_isolation_level(psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT) # onemogočimo transakcije
 cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor) 
 
-# poženemo strežnik na portu 8080, glej http://localhost:8080/
-#run(host='localhost', port=8080)
+#poženemo strežnik na portu 8080, glej http://localhost:8080/
+run(host='localhost', port=8080)
 
 
