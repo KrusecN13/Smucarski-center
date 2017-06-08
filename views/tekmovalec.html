@@ -1,0 +1,70 @@
+<html>
+<head>
+  <title>Tekmovalec</title>
+</head>
+<body>
+  <h2>Tekmovalec: </h2>
+<!-- Dodati še najbolše rezultate iz tekem -->
+  <table cellpadding="0" cellspacing="0" border="1">
+  <tr>
+	<th>Ime</th>
+     <th>Spol</th>
+     <th>Drzava</th>
+     <th>Klub</th>
+     <th>Datum rojstva</th>
+     <th>Status</th>
+     
+  </tr>
+  %for (rojstni_dan,spol,status,drzava,klub,ime) in tekmovalec:
+    <tr>
+		<th>{{ime}}</th>
+       <td>{{spol}}</td>
+       <td>{{drzava}}</td>
+       <td>{{klub}}</td>
+       <td>{{rojstni_dan}}</td>
+       <td>{{status}}</td>
+    </tr>
+  %end
+  </table>
+   %for (ime_uporabnika, geslo_uporabnika) in sezIme:  
+  <form method="post" action="/moji_skakalci/">
+	<input type="submit" name = "nazaj" value="Nazaj">
+	<input type="hidden" name="ime" value="{{ime_uporabnika}}">
+	<input type="hidden" name="geslo" value="{{geslo_uporabnika}}">	
+%end
+  </form>
+  <table cellpadding="0" cellspacing="0" border="1">
+  <tr> 
+ 
+ <th>id_tekme</th>
+ <td>uvrstitev</td>
+ <td>kategorija
+ <td>datum</td>
+ <td>drzava</td>
+ </tr>
+ %for (stZmag) in stevZmag:
+ 
+ <p>Stevilo zmag: {{stZmag}}</p>
+ %end
+ %for (stStopnick) in stevStopnick:
+ <p>Stevilo stopnick: {{stStopnick}}</p>
+ %end
+ 
+ %for (id_tekme,uvrstitev,kategorija,datum,drzava,disciplina) in tekmice:
+ <tr> 
+ 
+ <th>{{id_tekme}}</th>
+ <td>{{uvrstitev}}</td>
+ <td>{{kategorija}}
+ <td>{{datum}}</td>
+ <td>{{drzava}}</td>
+
+ </tr>
+ %end
+ </table>
+  
+
+
+
+</body>
+</html>

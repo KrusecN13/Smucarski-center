@@ -1,0 +1,34 @@
+<html>
+<head>
+  <title>Smucarski skoki</title>
+</head>
+<body>
+  <h2>Moji skakalci</h2>
+
+  <table cellpadding="0" cellspacing="0" border="1">
+  <tr>
+     <th>Ime</th>
+	 <th>Država</th>
+ 
+  </tr>
+  %for (id,ime_drzave,ime) in skakalci:
+    <tr>
+       <td><a href="/tekmovalci/{{id}}/">{{ime}}</a></td>
+	   <td>{{ime_drzave}}</td>
+    </tr>
+  %end
+  </table>
+	<h2>Dodaj skakalca</h2>
+%for (ime_uporabnika, geslo_uporabnika) in sezIme:
+  <form method="post" action="/moji_skakalci/">
+	<input type="text" name="vrednost" value="" />
+	<input type="submit" value="Dodaj">
+	<input type="hidden" name="ime" value="{{ime_uporabnika}}">
+	<input type="hidden" name="geslo" value="{{geslo_uporabnika}}">	
+
+  </form>
+  %end
+    
+
+</body>
+</html>

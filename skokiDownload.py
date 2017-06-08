@@ -18,9 +18,21 @@ def vsebina_datoteke(ime_datoteke):
 
 konec_strani=re.compile(r"results&nbsp;found")
 
+tekmovalec_ime= re.compile(r"Athlete : (?P<ime>.*)<")
 tekmovalec_info = re.compile(r"Birthdate.*\n.*>(?P<Rojstni_dan>.*)<.*\n.*\n.*\n.*\n.*\n(?P<Spol>\w*).*\n.*\n.*\n.*\n.*old..(?P<status>\w*).*\n.*\n.*\n.*\n.*\n.*ays..(?P<Drzava>...).*\n.*\n.*\n.*\n.*ld..(?P<klub>.*)<")
-tekmovalec_info_polja=['Rojstni_dan', 'Spol', 'status','Drzava','klub']
-            
+tekmovalec_info_polja=['ime','Rojstni_dan', 'Spol', 'status','Drzava','klub']
+
+
+
+
+
+def najdi_id(ime,priimek):
+    stran = 'https://data.fis-ski.com/global-links/search-a-athlete.html?listid=&lastname={}&gender=ALL&sector=JP&firstname={}'.format(priimek,ime)
+    shrani(stran,ime+priimek)
+    tekmovalec_id = re.compile(r'competitorid=(?P<id>.*)">{}'.format(priimek.upper()))
+    for ujemanje in re.finditer(tekmovalec_id,vsebina_datoteke(ime+priimek)):
+        os.remove(ime+priimek)
+        return(ujemanje.groupdict()['id'])
     
 def shrani_skakalca(id):
         
@@ -30,7 +42,11 @@ def shrani_skakalca(id):
                 writer = csv.DictWriter(datoteka,fieldnames = tekmovalec_info_polja)
                 writer.writeheader()
                 for ujemanje in re.finditer(tekmovalec_info,vsebina_datoteke('{id}'.format(id=id))):
-                                            writer.writerow(ujemanje.groupdict())
+                    for ime in re.finditer(tekmovalec_ime,vsebina_datoteke('{id}'.format(id=id))):
+                        dic=ujemanje.groupdict()
+                        ime.groupdict()
+                        dic['ime']=ime.groupdict()['ime']
+                        writer.writerow(dic)
                 os.remove('{id}'.format(id=id))
             nadaljujem = True
             i=0

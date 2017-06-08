@@ -1,0 +1,17 @@
+<html>
+<head>
+  <title>Tekmovalec je bil odstranjen...</title>
+</head>
+<body>
+ 
+Tekmovalec je bil odstranjen.
+   %for (ime_uporabnika, geslo_uporabnika) in sezIme:  
+  <form method="post" action="/moji_skakalci/">
+	<input type="submit" name = "nazaj" value="Nazaj">
+	<input type="hidden" name="ime" value="{{ime_uporabnika}}">
+	<input type="hidden" name="geslo" value="{{geslo_uporabnika}}">	
+%end
+  </form>
+  
+</body>
+</html>

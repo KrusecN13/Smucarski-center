@@ -1,1 +1,0 @@
-kategorija,datum,uvrstitev,drzava,mesto,disciplina,id

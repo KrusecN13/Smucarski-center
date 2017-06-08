@@ -1,0 +1,63 @@
+<html>
+<head>
+  <title>Smucarski skoki</title>
+</head>
+<body>
+  <h2>Moji skakalci</h2>
+
+  <table cellpadding="0" cellspacing="0" border="1">
+  <tr>
+     <th>Ime</th>
+	 <th>Država</th>
+ 
+  </tr>
+  %for (id,ime_drzave,ime) in skakalci:
+    <tr>
+	<td>
+	  <form method="post" action="/tekmovalci/{{id}}">
+		<input type="submit" value="{{ime}}">
+		%for (ime_uporabnika, geslo_uporabnika) in sezIme:
+		<input type="hidden" name="ime" value="{{ime_uporabnika}}">
+	<input type="hidden" name="geslo" value="{{geslo_uporabnika}}">	
+		%end
+	</td>
+
+  </form>
+
+	   <td>{{ime_drzave}}</td>
+	   <td>
+	  <form method="post" action="/odstrani_tekmovalca/{{id}}">
+		<input type="submit" value="Odstrani">
+	
+	%for (ime_uporabnika, geslo_uporabnika) in sezIme:
+		<input type="hidden" name="ime" value="{{ime_uporabnika}}">
+	<input type="hidden" name="geslo" value="{{geslo_uporabnika}}">	
+	%end
+	</form>
+	</td>
+	</tr>
+	%end
+
+  </table>
+	<h2>Dodaj skakalca</h2>
+
+ 
+ 
+ 
+ 
+ %for (ime_uporabnika, geslo_uporabnika) in sezIme:
+  <form method="post" action="/moji_skakalci/">
+	Ime: <input type="text" name="skakalec_ime" value="" />
+	Priimek: <input type="text" name="skakalec_priimek" value="" />
+	<input type="submit" value="Dodaj">
+	<input type="hidden" name="ime" value="{{ime_uporabnika}}">
+	<input type="hidden" name="geslo" value="{{geslo_uporabnika}}">	
+
+  </form>
+  %end
+ 
+ 
+   <td><a href="/">Logout</a></td>
+
+</body>
+</html>
