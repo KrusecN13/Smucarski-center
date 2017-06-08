@@ -1,18 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <html>
 <head>
+  
+  <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css"> <!-- bootstrap -->
+
+  <style type="text/css">
+
+    body{
+      background-color: #e6f7ff
+          }
+    input {
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border: 3px solid lightblue;
+    text-align: center;
+
+
+}
+
+  </style>
+
   <title>Smucarski skoki</title>
 </head>
+
 <body>
 
-
-	<h2>Login</h2>
+<center>
+  <div style="margin-top: 300px">
+  <h2 style="margin-bottom: 25px">Prijava</h2>
   <form method="post" action="/moji_skakalci/">
-	<input type="text" name="ime" value="" />
-	<input type="password" name="geslo" value="" />
-	<input type="submit" value="Pokaži">
+  <input placeholder="Uporabniško ime" type="text" name="ime" value="" /> <br>
+  <input type="password" placeholder="Geslo" name="geslo" value="" /> <br>
+  <input type="submit" value="Prijavi se">
   </form>
 
-	
-	
+  </div>
+</center>
+
+  
+  
 </body>
 </html>
