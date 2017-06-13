@@ -1,34 +1,156 @@
 <html>
 <head>
-  <title>Smucarski skoki</title>
+	<title>Smucarski skoki</title>
+
+	<style type="text/css">
+
+		body{
+			background-color: #e6f2ff
+		}
+
+		#ms h2 {
+			margin-left: 75px;
+		}
+
+		#ds h2{
+			margin-left: 20px;
+		}
+
+		#ms {
+			float: left;
+			position: absolute;
+			margin: 50px 0px 0px 150px;
+		}
+
+		#ds {
+			float: right;
+			margin: 50px 350px 0px 150px;
+
+		}
+
+		
+		table, th, td{
+			border: 1px solid lightblue;
+			background-color: #e6f9ff;
+			text-align: center;
+
+		}
+
+
+
+		tr:hover,td:hover {background-color: white}
+
+		input.tabela {
+			background-color: #e6f9ff;
+			border: none;
+			text-align: center;
+			cursor: pointer;
+		}
+
+		
+		input {
+			background-color: white;
+			background-position: 10px 10px; 
+			background-repeatat: no-repeat;
+			margin-bottom: 10px;
+			padding-left: 25px;
+			padding-right: 25px;
+			padding-top: 8px;
+			padding-bottom: 8px;
+			border: 3px solid lightblue;
+			border-radius: 2px;
+			text-align: center;
+			cursor: pointer;
+		}
+
+		#imed {
+			text-align: center;
+		}
+
+		form {
+			display: table-cell;
+			width: 100%;
+		}
+
+		
+
+		input:hover {
+			background-color: white;
+		}
+
+		#logout {
+			position: absolute;
+		}
+	</style>
+
 </head>
 <body>
-  <h2>Moji skakalci</h2>
 
-  <table cellpadding="0" cellspacing="0" border="1">
-  <tr>
-     <th>Ime</th>
-	 <th>Država</th>
- 
-  </tr>
-  %for (id,ime_drzave,ime) in skakalci:
-    <tr>
-       <td><a href="/tekmovalci/{{id}}/">{{ime}}</a></td>
-	   <td>{{ime_drzave}}</td>
-    </tr>
-  %end
-  </table>
-	<h2>Dodaj skakalca</h2>
-%for (ime_uporabnika, geslo_uporabnika) in sezIme:
-  <form method="post" action="/moji_skakalci/">
-	<input type="text" name="vrednost" value="" />
-	<input type="submit" value="Dodaj">
-	<input type="hidden" name="ime" value="{{ime_uporabnika}}">
-	<input type="hidden" name="geslo" value="{{geslo_uporabnika}}">	
+	<div id="ms">
+		<h2>Moji skakalci</h2>
 
-  </form>
-  %end
-    
+
+		<table cellpadding="0" cellspacing="0">
+			<tr>
+				<th>Ime</th>
+				<th>Država</th>
+
+			</tr>
+			%for (id,ime_drzave,ime) in skakalci:
+			<tr>
+				<td>
+					<form method="post" action="/tekmovalci/{{id}}">
+						<input class ="tabela" type="submit" value="{{ime}}">
+						%for (ime_uporabnika, geslo_uporabnika) in sezIme:
+						<input type="hidden" name="ime" value="{{ime_uporabnika}}">
+						<input type="hidden" name="geslo" value="{{geslo_uporabnika}}">	
+						%end
+					</td>
+
+				</form>
+
+				<td id="imed" >{{ime_drzave}}</td>
+				<td>
+					<form method="post" action="/odstrani_tekmovalca/{{id}}">
+						<input class ="tabela" type="submit" value="Odstrani">
+
+						%for (ime_uporabnika, geslo_uporabnika) in sezIme:
+						<input type="hidden" name="ime" value="{{ime_uporabnika}}">
+						<input type="hidden" name="geslo" value="{{geslo_uporabnika}}">	
+						%end
+					</form>
+				</td>
+			</tr>
+			%end
+
+		</table>
+
+	</div>
+
+	<div id="ds">
+		<h2>Dodaj skakalca</h2>
+
+
+
+
+
+		%for (ime_uporabnika, geslo_uporabnika) in sezIme:
+		<form method="post" action="/moji_skakalci/">
+			<input type="text" placeholder="Ime" name="skakalec_ime" value="" /> <br>
+			<input placeholder="Priimek" type="text" name="skakalec_priimek" value="" /> <br>
+			<input type="submit" value="Dodaj">
+			<input type="hidden" name="ime" value="{{ime_uporabnika}}">
+			<input type="hidden" name="geslo" value="{{geslo_uporabnika}}">	
+
+		</form>
+		%end
+
+	</div>
+
+	<div id="logout">
+		<a href="/">Logout</a>
+	</div>
 
 </body>
+
 </html>
