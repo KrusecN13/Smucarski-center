@@ -1,30 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
+<html>
 <head>
-  
-  <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css"> <!-- bootstrap -->
 
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <style type="text/css">
 
     body{
       background-color: #e6f7ff
-          }
+    }
     input {
-    background-color: white;
-    background-position: 10px 10px; 
-    background-repeat: no-repeat;
-    margin-bottom: 10px;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    border: 3px solid lightblue;
-    text-align: center;
+      background-color: white;
+      background-position: 10px 10px; 
+      background-repeat: no-repeat;
+      margin-bottom: 10px;
+      padding-left: 25px;
+      padding-right: 25px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      border: 3px solid lightblue;
+      text-align: center;
+      cursor: pointer;
+    }
 
+    button {
+      background-color: #e6f5ff;
+      color:  #000033;
+      padding: 50px 100px;
+      font-size: 50px;
+      font-family: 'Open Sans', sans-serif;
+      border-width: 5px;
+      border-style: solid;
+      border-radius: 2px;
+      border-color: lightblue;
 
-}
+    }
+    button:hover {
+      background-color: white;
+      cursor: pointer;
+    }
+
 
   </style>
 
@@ -33,19 +49,32 @@
 
 <body>
 
-<center>
-  <div style="margin-top: 300px">
-  <h2 style="margin-bottom: 25px">Prijava</h2>
-  <form method="post" action="/moji_skakalci/">
-  <input placeholder="Uporabniško ime" type="text" name="ime" value="" /> <br>
-  <input type="password" placeholder="Geslo" name="geslo" value="" /> <br>
-  <input type="submit" value="Prijavi se">
-  </form>
+  <center>
+    <div style="margin-top: 300px">
+      <button id ="b1"  onclick="document.getElementById('b1').style.display='none'" id="b1" style="margin-bottom: 25px">Prijava </button>
+      <form  method="post" action="/moji_skakalci/">
+        <input id="i1" style="display: none;" placeholder="Uporabniško ime" type="text" name="ime" value="" /> <br>
+        <input id="i2" style="display: none;" type="password" placeholder="Geslo" name="geslo" value="" /> <br>
+        <input id="i3" style="display: none;" type="submit" value="Prijavi se">
+      </form>
 
-  </div>
-</center>
+    </div>
+  </center>
 
   
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("button").click(function(){
+        $("#i1").fadeIn();
+        $("#i2").fadeIn();
+        $("#i3").fadeIn();
+        $("#b1").fadeOut();
+      });
+    });
+  </script>
   
 </body>
+
+
 </html>
