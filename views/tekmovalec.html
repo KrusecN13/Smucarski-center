@@ -1,68 +1,142 @@
 <html>
 <head>
-  <title>Tekmovalec</title>
+
+  <style type="text/css">
+
+    body{
+      background-color: #e6f2ff
+    }
+
+    #tekmovalec {
+      display: inline-block;
+      text-align: center;
+      margin: 50px 0px 20px 50px;
+    }
+
+    #tekme {
+      width: 30%;
+      text-align: center;
+      margin: 20px 0px 20px 50px;
+
+    }
+
+
+
+    input {
+      background-color: white;
+      margin-bottom: 10px;
+      padding-left: 25px;
+      padding-right: 25px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      border: 3px solid lightblue;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    table, th, td{
+      border: 1px solid lightblue;
+      background-color: #e6f9ff;
+      text-align: center;
+
+    }
+    form {
+      padding: 10 10 10 10;
+    }
+
+    .st {
+      font-weight: bold;
+      font-size: 16px;
+      margin-left: 50px;
+    }
+
+    span {
+
+      text-align: center;
+      display: inline-block; 
+      background-color: white; 
+      border: 2px solid lightblue;
+      height: 20px;
+      width: 20px;
+
+    }
+
+  </style>
+
+  <title>Podatki za tekmovalca:</title>
 </head>
 <body>
-  <h2>Tekmovalec: </h2>
-<!-- Dodati še najbolše rezultate iz tekem -->
-  <table cellpadding="0" cellspacing="0" border="1">
-  <tr>
-	<th>Ime</th>
-     <th>Spol</th>
-     <th>Drzava</th>
-     <th>Klub</th>
-     <th>Datum rojstva</th>
-     <th>Status</th>
-     
-  </tr>
-  %for (rojstni_dan,spol,status,drzava,klub,ime) in tekmovalec:
-    <tr>
-		<th>{{ime}}</th>
-       <td>{{spol}}</td>
-       <td>{{drzava}}</td>
-       <td>{{klub}}</td>
-       <td>{{rojstni_dan}}</td>
-       <td>{{status}}</td>
+
+  <div id="tekmovalec">
+    <h2>Tekmovalec: </h2>
+    <!-- Dodati še najbolše rezultate iz tekem -->
+    <table cellpadding="5" cellspacing="0" border="1">
+      <tr>
+       <th>Ime</th>
+       <th>Spol</th>
+       <th>Drzava</th>
+       <th>Klub</th>
+       <th>Datum rojstva</th>
+       <th>Status</th>
+       
+     </tr>
+     %for (rojstni_dan,spol,status,drzava,klub,ime) in tekmovalec:
+     <tr>
+      <th>{{ime}}</th>
+      <td>{{spol}}</td>
+      <td>{{drzava}}</td>
+      <td>{{klub}}</td>
+      <td>{{rojstni_dan}}</td>
+      <td>{{status}}</td>
     </tr>
-  %end
+    %end
   </table>
-   %for (ime_uporabnika, geslo_uporabnika) in sezIme:  
+  %for (ime_uporabnika, geslo_uporabnika) in sezIme:  
   <form method="post" action="/moji_skakalci/">
-	<input type="submit" name = "nazaj" value="Nazaj">
-	<input type="hidden" name="ime" value="{{ime_uporabnika}}">
-	<input type="hidden" name="geslo" value="{{geslo_uporabnika}}">	
-%end
-  </form>
-  <table cellpadding="0" cellspacing="0" border="1">
-  <tr> 
- 
- <th>id_tekme</th>
- <td>uvrstitev</td>
- <td>kategorija
- <td>datum</td>
- <td>drzava</td>
- </tr>
+   <input type="submit" name = "nazaj" value="Nazaj">
+   <input type="hidden" name="ime" value="{{ime_uporabnika}}">
+   <input type="hidden" name="geslo" value="{{geslo_uporabnika}}">	
+   %end
+ </form>
+
+</div>
+
+<div> 
  %for (stZmag) in stevZmag:
  
- <p>Stevilo zmag: {{stZmag}}</p>
+ <p class="st">Število zmag: <span> {{stZmag}} </span></p>
  %end
  %for (stStopnick) in stevStopnick:
- <p>Stevilo stopnick: {{stStopnick}}</p>
+ <p class="st">Število stopničk: <span> {{stStopnick}} </span></p>
  %end
- 
- %for (id_tekme,uvrstitev,kategorija,datum,drzava,disciplina) in tekmice:
- <tr> 
- 
- <th>{{id_tekme}}</th>
- <td>{{uvrstitev}}</td>
- <td>{{kategorija}}
- <td>{{datum}}</td>
- <td>{{drzava}}</td>
+</div>
 
- </tr>
- %end
- </table>
-  
+
+<div id="tekme">
+  <table cellpadding="5" cellspacing="0" border="1">
+    <tr> 
+     
+     <th>ID tekme</th>
+     <td>Uvrstitev</td>
+     <td>Kategorija </td>
+     <td>Datum</td>
+     <td>Država</td>
+   </tr>
+   
+   %for (id_tekme,uvrstitev,kategorija,datum,drzava,disciplina) in tekmice:
+   <tr> 
+     
+     <th>{{id_tekme}}</th>
+     <td>{{uvrstitev}}</td>
+     <td>{{kategorija}}
+       <td>{{datum}}</td>
+       <td>{{drzava}}</td>
+
+     </tr>
+     %end
+   </table>
+   
+ </div>
 
 
 
