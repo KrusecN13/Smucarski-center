@@ -1,0 +1,37 @@
+CREATE TABLE uporabnik (
+id_uporabnika SERIAL,
+ime TEXT,
+geslo TEXT
+);
+
+CREATE TABLE tekmovalci(
+id INT,
+rojstni_dan DATE,
+spol TEXT,
+status TEXT,
+drzava TEXT,
+klub TEXT,
+ime TEXT,
+priimek TEXT
+);
+
+
+CREATE TABLE rezultati(
+id_tekme INT,
+mesto INT,
+id_tekmovalca INT
+);
+
+CREATE TABLE tekme(
+id_tekme INT,
+kategorija TEXT,
+datum DATE,
+drzava TEXT,
+mesto TEXT,
+disciplina TEXT
+);
+
+CREATE TABLE mojiskakalci(
+uporabnik INT,
+skakalec INT
+);
