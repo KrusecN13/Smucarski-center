@@ -4,9 +4,10 @@ from urllib.request import urlopen
 import os
 
 def shrani(url, ime_datoteke):
-    r = urlopen(url).read().decode()
-    datoteka = open(ime_datoteke, 'w')
-    datoteka.write(r)
+    if url !='' and ime_datoteke != '':
+        r = urlopen(url).read().decode()
+        datoteka = open(ime_datoteke, 'w')
+        datoteka.write(r)
 
 
 def vsebina_datoteke(ime_datoteke):
@@ -27,13 +28,15 @@ tekmovalec_info_polja=['ime','Rojstni_dan', 'Spol', 'status','Drzava','klub']
 
 
 def najdi_id(ime,priimek):
-    stran = 'https://data.fis-ski.com/global-links/search-a-athlete.html?listid=&lastname={}&gender=ALL&sector=JP&firstname={}'.format(priimek,ime)
-    shrani(stran,ime+priimek)
-    tekmovalec_id = re.compile(r'competitorid=(?P<id>.*)">{}'.format(priimek.upper()))
-    for ujemanje in re.finditer(tekmovalec_id,vsebina_datoteke(ime+priimek)):
+    if ime != None and priimek != None:
+        stran = 'https://data.fis-ski.com/global-links/search-a-athlete.html?listid=&lastname={}&gender=ALL&sector=JP&firstname={}'.format(priimek,ime)
+        shrani(stran,ime+priimek)
+        tekmovalec_id = re.compile(r'competitorid=(?P<id>.*)">{}'.format(priimek.upper()))
+        for ujemanje in re.finditer(tekmovalec_id,vsebina_datoteke(ime+priimek)):
+            os.remove(ime+priimek)
+            return(ujemanje.groupdict()['id'])
         os.remove(ime+priimek)
-        return(ujemanje.groupdict()['id'])
-    
+        
 def shrani_skakalca(id):
         
         if not os.path.isfile('tekmovalci/csv_{id}.txt'.format(id=id)):
@@ -103,6 +106,12 @@ def shrani_tekmo(id):
                                  dict=ujemanje.groupdict()
                                  writer.writerow(dict)
                         os.remove(str(id))
+
+def v_datum(datum):
+    #spremeni datum v tako verzijod a ga SQL lahko uporablja
+    datum = datum[-4:len(datum)] + datum[2:5] + '-' + datum[0:2]
+    return datum
+
 
 def shrani_vse(id):
     shrani_skakalca(id)

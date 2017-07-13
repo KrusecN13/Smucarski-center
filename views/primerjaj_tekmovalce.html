@@ -60,6 +60,15 @@
       width: 20px;
 
     }
+	#logout {
+	margin: 20px 50px 0px 0px;
+	float:right;
+		}
+	#myAcc {
+	margin: 20px 50px 0px 0px;
+	float:right;
+		}
+
 
   </style>
 
@@ -68,28 +77,30 @@
 <body>
 
   <div id="tekmovalec">
-    <h2>Tekmovalec: </h2>
+    <h2>Primerjava: </h2>
     <!-- Dodati še najbolše rezultate iz tekem -->
     <table cellpadding="5" cellspacing="0" border="1">
       <tr>
        <th>Ime</th>
 	   <th>Priimek</th>
-       <th>Spol</th>
-       <th>Drzava</th>
-       <th>Klub</th>
-       <th>Datum rojstva</th>
-       <th>Status</th>
+	   <th>Nastopi</th>
+       <th>Stopničke</th>
+       <th>Zmage</th>
+       <th>Olimpijski nastopi</th>
+       <th>Olimpijske stopničke</th>
+       <th>Olimpijske zmage</th>
        
      </tr>
-     %for (rojstni_dan,spol,status,drzava,klub,ime,priimek) in tekmovalec:
+     %for (ime,priimek,stNastop,stStopnick,stZmag,olympicNastopi,olympicStop,olympicWin) in tekmovalci:
      <tr>
       <td>{{ime}}</td>
 	   <td>{{priimek}}</td>
-      <td>{{spol}}</td>
-      <td>{{drzava}}</td>
-      <td>{{klub}}</td>
-      <td>{{rojstni_dan}}</td>
-      <td>{{status}}</td>
+	   <td>{{stNastop}}</td>
+      <td>{{stStopnick}}</td>
+      <td>{{stZmag}}</td>
+      <td>{{olympicNastopi}}</td>
+      <td>{{olympicStop}}</td>
+      <td>{{olympicWin}}</td>
     </tr>
     %end
   </table>
@@ -103,51 +114,30 @@
 
 </div>
 
-<div> 
- %for (stZmag) in stevZmag:
+<div id="logout">
+
+	<form method="get" action="/">
+		
+		<input type="submit" value="Odjavi se">
+
+	</form>
+</div>
+
+<div id="myAcc">
  
- <p class="st">Število zmag: <span> {{stZmag}} </span></p>
- %end
- %for (stStopnick) in stevStopnick:
- <p class="st">Število stopničk: <span> {{stStopnick}} </span></p>
- %end
-  %for (olympicNastopi) in olympicNastopi:
- <p class="st">Število olimpijskih nastopov: <span> {{olympicNastopi}} </span></p>
- %end
-  %for (olympicStop ) in olympicStop :
- <p class="st">Število olimpijskih stopničk: <span> {{olympicStop }} </span></p>
- %end
-  %for (olympicWin) in olympicWin:
- <p class="st">Število olimpijskih zmag: <span> {{olympicWin}} </span></p>
- %end
+		<form method="post" action="/moj_racun/">
+		%for (ime_uporabnika, geslo_uporabnika) in sezIme:
+		<input type="hidden" name="ime" value="{{ime_uporabnika}}">
+		<input type="hidden" name="geslo" value="{{geslo_uporabnika}}">	
+		%end
+			
+			<input type="submit" value="Moj račun">
+
+		</form>
 </div>
 
 
-<div id="tekme">
-  <table cellpadding="5" cellspacing="0" border="1">
-    <tr> 
-     
-     <th>ID tekme</th>
-     <td>Uvrstitev</td>
-     <td>Kategorija </td>
-     <td>Datum</td>
-     <td>Država</td>
-   </tr>
-   
-   %for (id_tekme,uvrstitev,kategorija,datum,drzava,disciplina) in tekmice:
-   <tr> 
-     
-     <th>{{id_tekme}}</th>
-     <td>{{uvrstitev}}</td>
-     <td>{{kategorija}}
-       <td>{{datum}}</td>
-       <td>{{drzava}}</td>
 
-     </tr>
-     %end
-   </table>
-   
- </div>
 
 
 

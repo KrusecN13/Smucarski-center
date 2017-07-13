@@ -1,5 +1,27 @@
 <html>
 <head>
+	<script>function primerjajTekm() {
+
+	
+	   var tekmovalci = document.getElementsByName("tekmovalec");
+	   var primerjaj = [];
+	   for (var i = 0; i < tekmovalci.length; i++) {
+		  if(tekmovalci[i].checked == true){
+				primerjaj.push(tekmovalci[i].value)
+		}
+	   }
+	   if(primerjaj.length>0){
+	   var seznam = document.getElementById("primerjava");
+	   seznam.value = primerjaj.toString();
+	   document.getElementById("myForm").submit()
+	   }else{
+	   document.getElementById('erorcek').innerHTML = 'Izberi vsaj enega tekmovalca!'
+	   }
+	    
+	   
+	   
+	}
+	</script>
 	<title>Smucarski skoki</title>
 
 	<style type="text/css">
@@ -11,13 +33,13 @@
 		#ms {
 			text-align: center;
 			float: left;
-			position: absolute;
-			margin: 50px 0px 0px 150px;
+			position: relative;
+			margin: 50px 0px 0px 50px;
 		}
 
 		#ds {
-			float: right;
-			margin: 50px 400px 0px 150px;
+			float: left;
+			margin: 50px auto 0px 150px;
 }
 
 		
@@ -38,6 +60,7 @@
 		tr:hover,td:hover {background-color: white}
 
 		.tabela {
+			margin-right = auto;
 			margin-bottom: 0 !important;
 			background-color: #e6f9ff;
 			border: none;
@@ -75,6 +98,10 @@
 			margin: 20px 50px 0px 0px;
 			float:right;
 				}
+		#myAcc {
+			margin: 20px 50px 0px 0px;
+			float:right;
+				}
 
 		button {
       background-color: white;
@@ -87,6 +114,7 @@
       border-radius: 2px;
       border-color: lightblue;
       cursor: pointer;
+	  }
 
 	</style>
 
@@ -99,11 +127,16 @@
 
 		<table cellpadding="0" cellspacing="0">
 			<tr>
+			<p id="erorcek"></p>
 				<th>Ime</th>
+				<th>Priimek</th>
 				<th>Država</th>
+				<th>Primerjaj</th>
+				<th> </th>
+
 
 			</tr>
-			%for (id,ime_drzave,ime) in skakalci:
+			%for (id,ime_drzave,ime,priimek) in skakalci:
 			<tr>
 				<td>
 					<form method="post" action="/tekmovalci/{{id}}">
@@ -112,11 +145,28 @@
 						<input type="hidden" name="ime" value="{{ime_uporabnika}}">
 						<input type="hidden" name="geslo" value="{{geslo_uporabnika}}">	
 						%end
-					</td>
+					</form>
+				
+				</td>
+				<td>
+					<form method="post" action="/tekmovalci/{{id}}">
+						<input class ="tabela" type="submit" value="{{priimek}}">
+						%for (ime_uporabnika, geslo_uporabnika) in sezIme:
+						<input type="hidden" name="ime" value="{{ime_uporabnika}}">
+						<input type="hidden" name="geslo" value="{{geslo_uporabnika}}">	
+						%end
+					</form>
+				
+				</td>
 
-				</form>
-
+				
 				<td id="imed" >{{ime_drzave}}</td>
+
+				
+				<td style="text-align:center;">
+				<input type="checkbox" name="tekmovalec" value="{{id}}" />
+				</td>
+				
 				<td>
 					<form method="post" action="/odstrani_tekmovalca/{{id}}">
 						<input class ="tabela" type="submit" value="Odstrani">
@@ -127,15 +177,35 @@
 						%end
 					</form>
 				</td>
+			
 			</tr>
 			%end
-
+			
 		</table>
-
+<button type="button" onclick="primerjajTekm();">Primerjaj</button>
 	</div>
+		
 
 	<div id="logout">
-		<button href="/">Odjavi se</button> 
+ 
+		<form method="get" action="/">
+			
+			<input type="submit" value="Odjavi se">
+
+		</form>
+	</div>
+	
+	<div id="myAcc">
+ 
+		<form method="post" action="/moj_racun/">
+		%for (ime_uporabnika, geslo_uporabnika) in sezIme:
+		<input type="hidden" name="ime" value="{{ime_uporabnika}}">
+		<input type="hidden" name="geslo" value="{{geslo_uporabnika}}">	
+		%end
+			
+			<input type="submit" value="Moj račun">
+
+		</form>
 	</div>
 
 	<div id="ds">
@@ -143,24 +213,35 @@
 		<center>
 		<h2>Dodaj skakalca</h2>
 
+		%for (istrue) in obstaja:
+			{{istrue}}
+		%end
 
-
-
-
+		
 		%for (ime_uporabnika, geslo_uporabnika) in sezIme:
 		<form method="post" action="/moji_skakalci/">
-			<input type="text" placeholder="Ime" name="skakalec_ime" value="" /> <br>
-			<input placeholder="Priimek" type="text" name="skakalec_priimek" value="" /> <br>
+			<input type="text" placeholder="Ime" name="skakalec_ime" value="" required/> <br>
+			<input placeholder="Priimek" type="text" name="skakalec_priimek" value="" required/> <br>
 			<input type="submit" value="Dodaj">
 			<input type="hidden" name="ime" value="{{ime_uporabnika}}">
 			<input type="hidden" name="geslo" value="{{geslo_uporabnika}}">	
 
 		</form>
 		%end
-
+		<form id="myForm" method="post" action="/primerjaj_tekmovalce/">
+						<input type="hidden" id ="primerjava" name="primerjava" value="">
+						%for (ime_uporabnika, geslo_uporabnika) in sezIme:
+						<input type="hidden" name="ime" value="{{ime_uporabnika}}">
+						<input type="hidden" name="geslo" value="{{geslo_uporabnika}}">	
+						%end
+		</form>
 		</center>
+		
 
 	</div>
+
+	
+
 
 	
 
