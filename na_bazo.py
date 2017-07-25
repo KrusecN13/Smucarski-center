@@ -3,7 +3,7 @@
 
 from bottle import *
 # uvozimo ustrezne podatke za povezavo
-import auth as auth
+import auth_public as auth
 import csv
 from skokiDownload import *
 # uvozimo psycopg2
@@ -25,98 +25,85 @@ def imePriimek(skupaj):
     priimek = razdeli[0].capitalize()
     ime = ' '.join(razdeli[1:len(razdeli)])
     return (ime,priimek)
+
 def aktiven(status):
+    #spremeni status v slovenscino
     if status=='Active':
         return 'Skače'
     else:
         return 'Ne skače'
 
-
-
-### ko dodajaš najprej preveri, če je podatek že notri
-
+#####   zeNot je skozi vso kodo preverjanje ali je zadeva ze v bazi ali ne ################
 
 #polne tabelo tekmovalci
 def dodaj_tekmovalca(id):
+    #najprej preverimo ali je tekmovalec ze v bazi
     cur.execute("Select * from tekmovalci where id = %s",[id])
     zeNot=cur.fetchone()
     if zeNot is None:
+        #ce ni, shranimo potrebne podatke
         shrani_skakalca(id)
+        #nato pa te podatke posljemo na bazo
         with open('tekmovalci/info_{i}'.format(i=id),'r') as tekmovalec:
+        #dodamo tekmovalca v bazo v tabelo tekmovalec
             reader = csv.DictReader(tekmovalec)
             for vrstica in reader:
                 (ime,priimek) = imePriimek(vrstica["ime"])
+                #ime razdelimo na ime,priimek
                 cur.execute("INSERT INTO tekmovalci VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
                 [id, v_datum(vrstica["Rojstni_dan"]), vrstica["Spol"], vrstica["status"], vrstica["Drzava"],
                 vrstica["klub"],ime,priimek])
 
-            
-    #polne tabelo tekme
+      
+        #polne tabelo tekme
         with open('tekmovalci/csv_{i}.txt'.format(i=id),'r') as tekme:
             reader = csv.DictReader(tekme)
             for vrstica in reader:
                 cur.execute("Select * from tekme where id_tekme = %s",[vrstica['id']])
                 zeNot=cur.fetchone()
                 if zeNot is None:
-                    shrani_tekmo(vrstica['id'])
+                    shrani_tekmo(vrstica['id'],id)
                     cur.execute("INSERT INTO tekme VALUES (%s, %s, %s, %s, %s, %s)",
                     [vrstica["id"],vrstica["kategorija"], v_datum(vrstica["datum"]),vrstica["drzava"], vrstica["mesto"],  vrstica["disciplina"],
                     ])
-                    dodaj_tekmoR(vrstica["id"])
+                    dodaj_tekmoR(vrstica["id"],id)
+                    os.remove('tekme/tekma_{id}.txt'.format(id=vrstica['id']))
             
     conn.commit()          
     
     
     #polne tabelo rezultati
-def dodaj_tekmoR(id):
+def dodaj_tekmoR(id,id_tekmovalca=True):
     with open('tekme/tekma_{i}.txt'.format(i=id),'r') as tekme:
         
         reader = csv.DictReader(tekme)
         for vrstica in reader:
-            cur.execute("SELECT * FROM rezultati where id_tekme = %s AND id_tekmovalca = %s",
-            [id,vrstica['id_tekmovalca']])
-            zeNot= cur.fetchall()
-            if zeNot == []:
-                if vrstica["mesto"]=='':
-                    vrstica["mesto"]=500
-                    
-                cur.execute("INSERT INTO  rezultati VALUES (%s, %s, %s)",
-                [id, vrstica["mesto"], vrstica["id_tekmovalca"]])
+            if vrstica['id_tekmovalca'] == id_tekmovalca or id_tekmovalca==True:
+            #v primeru odstranitve tujega kljuca v tekmah, lahko dodamo vse rezultate tekme hkrati
+            #drugace moramo dodati rezultat samo nasega tekmovalca
+                cur.execute("SELECT * FROM rezultati where id_tekme = %s AND id_tekmovalca = %s",
+                [id,vrstica['id_tekmovalca']])
+                zeNot= cur.fetchall()
+                if zeNot == []:
+                    if vrstica["mesto"]=='':
+                        #to je v primeru da je bil diskvalificiran, ker je tip v SQL na INT
+                        #nastiman, nemoremo pustiti prazno.
+                        vrstica["mesto"]=500
                         
-            
-##            Na žalost imajo preveč nekonsistentno bazo, tako da tipi ne delujejo primerno, zato bomo dolocene dele kr izpustili, ce bo cas se mogoce lotimo popravljat njihove napake
-##            cur.execute("SELECT * FROM rezultati where id_tekme = %s AND id_tekmovalca = %s",
-##            [id,vrstica['id_tekmovalca']])
-##            zeNot= cur.fetchall()
-##            if zeNot == []:
-##                #treba spremenit ničelne vnose v ničle.
-##                if vrstica["prvi_tocke"] == '':
-##                    vrstica["prvi_tocke"]=0
-##                if vrstica["drugi_tocke"] == '':
-##                    vrstica["drugi_tocke"] = 0
-##                if vrstica["skupaj_tocke"] == '':
-##                    vrstica["skupaj_tocke"] = 0
-##                if vrstica["drugi_skok"] == '':
-##                    vrstica["drugi_skok"] = 0
-##                if vrstica["prvi_skok"] == '':
-##                    vrstica["prvi_skok"]= 0
-##                if vrstica["mesto"]=='':
-##                    vrstica["mesto"] = 500
-##                skupToc=str(vrstica["skupaj_tocke"])
-##                if skupToc[-2:len(skupToc)]== '.0':
-##                    #to je tu samo zato ker imajo v bazi neke napake na fisu pa so se skupaj tocke vcasih pojavile kot "91,5.0", ce bi bile prav zapisane in bi odstranili .0 ni nič narobe
-##                    #zato bomo vedno to nardili, pa se nebi smelo nič pokvariti
-##                    vrstica["skupaj_tocke"] = skupToc[0:-2]
-##                
-##                cur.execute("INSERT INTO  rezultati VALUES (%s, %s, %s, %s, %s,%s,%s, %s)",
-##                [id, vrstica["mesto"], vrstica["id_tekmovalca"], vrstica["prvi_skok"],vrstica["prvi_tocke"],
-##                vrstica["drugi_skok"], vrstica["drugi_tocke"], vrstica["skupaj_tocke"]])
-##            
-
+                    cur.execute("INSERT INTO  rezultati VALUES (%s, %s, %s)",
+                    [id, vrstica["mesto"], vrstica["id_tekmovalca"]])
+                        
 
             
 ##################SPLETNA STRAN LAHKO JO DAMO DRUGAM CE NAM USPE
             
+
+####    V skoraj vsaki funkciji spodaj sta prvi dve vrstici
+#                                           ime = request.forms.get("ime")
+#                                           geslo = request.forms.get("geslo")
+#
+####    Tukaj so zato, da "vlecemo" ime in geslo uporabnika s prehodi med stranmi, na stran jih spravimo z sezIme=[[ime,geslo]]
+
 
 
 @route('/odstrani_tekmovalca/:x', method='POST')
@@ -136,7 +123,7 @@ def moji_skakalci():
     ime_skakalca=request.forms.get("skakalec_ime")
     priimek_skakalca=request.forms.get("skakalec_priimek")
     if ime == '' or ime==None:
-        #Če si nismo izbrali imena ko smo se vpisovali
+        #Če si nismo izbrali imena ko smo se vpisovali, sem ne bi smelo prit sedaj ko sta prostora za vpis obvezna
         redirect('/')
     cur.execute("SELECT * FROM uporabnik where ime=%s",[ime])
     #poisce, ce je uporabnik v bazi
@@ -151,7 +138,7 @@ def moji_skakalci():
         return template('glavna.html', skakalci=cur,sezIme=[[ime,geslo]],obstaja=[''])
     else:
         if pravoGeslo['geslo'] == geslo:
-        #ce je, je treba pogledat ce je geslo pravo
+        #ce je, je treba pogledat ce je geslo pravo 
 
             
             if ime_skakalca != '' and ime_skakalca != None:
@@ -161,14 +148,22 @@ def moji_skakalci():
                     #če slučajno idja ne najde, naj vrne napako
                     if idskakalca != None:
                         dodaj_tekmovalca(idskakalca)
-                        cur.execute("SELECT id_uporabnika FROM uporabnik WHERE ime=%s",[ime])
-                        id_uporabnika = cur.fetchone()
-                        cur.execute("SELECT * FROM mojiskakalci WHERE uporabnik=%s AND skakalec=%s",[id_uporabnika[0],idskakalca])
-                        zeNot= cur.fetchone()
-                        #preveri, če je skakalec ze med skakalci uporabnika
-                        if zeNot==None:
-                                cur.execute("INSERT INTO mojiskakalci VALUES (%s,%s)",[id_uporabnika[0],idskakalca])
-                                conn.commit()
+                        cur.execute("SELECT * FROM tekmovalci WHERE id=%s",[idskakalca])
+                        jeNot=cur.fetchone()
+                        if jeNot != None:
+                            cur.execute("SELECT id_uporabnika FROM uporabnik WHERE ime=%s",[ime])
+                            id_uporabnika = cur.fetchone()
+                            cur.execute("SELECT * FROM mojiskakalci WHERE uporabnik=%s AND skakalec=%s",[id_uporabnika[0],idskakalca])
+                            zeNot= cur.fetchone()
+                            #preveri, če je skakalec ze med skakalci uporabnika
+                            if zeNot==None:
+                                    cur.execute("INSERT INTO mojiskakalci VALUES (%s,%s)",[id_uporabnika[0],idskakalca])
+                                    conn.commit()
+                        else:
+                            cur.execute("SELECT id_uporabnika FROM uporabnik WHERE ime=%s",[ime])
+                            id_uporabnika = cur.fetchone()
+                            cur.execute("SELECT id,drzava,ime,priimek FROM tekmovalci INNER JOIN mojiskakalci ON tekmovalci.id = mojiskakalci.skakalec WHERE uporabnik = %s",[id_uporabnika[0]])
+                            return template('glavna.html', skakalci=cur,sezIme=[[ime,geslo]],obstaja=['Skakalec ne obstaja'])
                     else:
                         cur.execute("SELECT id_uporabnika FROM uporabnik WHERE ime=%s",[ime])
                         id_uporabnika = cur.fetchone()
@@ -218,6 +213,7 @@ def get_tekmovalec(x):
 def primerjaj_tekmovalce():
     idtekmovalci = request.forms.get("primerjava")
     idtekmovalci = idtekmovalci.split(',')
+    #to sprejme niz tekmovalcev za primerjat locen z vejicami, zato ga spremenimo v seznam
     ime = request.forms.get("ime")
     geslo = request.forms.get("geslo")
     tekmovalci=[]
@@ -254,9 +250,12 @@ def moj_racun():
     pravoGeslo= cur.fetchone()
     if pravoGeslo != None:
         if pravoGeslo['geslo'] == geslo:
+            #preveri ce je uporabnik vpisan s pravim geslom
             if geslo1 != None:
                 if geslo1==geslo2:
+                    #preveri ce sta novi gesli enaki
                     cur.execute('UPDATE uporabnik SET geslo = %s WHERE ime = %s',[geslo1,ime])
+                    #spremeni geslo
                     conn.commit()
                     return template('myAcc.html',sezIme=[[ime,geslo1]],menjava=['Menjava je bila uspešna'])
                 else:

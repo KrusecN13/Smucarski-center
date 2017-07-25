@@ -1,7 +1,8 @@
 CREATE TABLE uporabnik (
 id_uporabnika SERIAL,
 ime TEXT,
-geslo TEXT
+geslo TEXT,
+PRIMARY KEY(id_uporabnika)
 );
 
 CREATE TABLE tekmovalci(
@@ -12,14 +13,8 @@ status TEXT,
 drzava TEXT,
 klub TEXT,
 ime TEXT,
-priimek TEXT
-);
-
-
-CREATE TABLE rezultati(
-id_tekme INT,
-mesto INT,
-id_tekmovalca INT
+priimek TEXT,
+PRIMARY KEY (id)
 );
 
 CREATE TABLE tekme(
@@ -28,10 +23,31 @@ kategorija TEXT,
 datum DATE,
 drzava TEXT,
 mesto TEXT,
-disciplina TEXT
+disciplina TEXT,
+PRIMARY KEY(id_tekme)
 );
+
+CREATE TABLE rezultati(
+id_tekme INT,
+mesto INT,
+id_tekmovalca INT,
+FOREIGN KEY(id_tekme) REFERENCES tekme(id_tekme),
+FOREIGN KEY(id_tekmovalca) REFERENCES tekmovalci(id)
+);
+
 
 CREATE TABLE mojiskakalci(
 uporabnik INT,
-skakalec INT
+skakalec INT,
+FOREIGN KEY(uporabnik) REFERENCES uporabnik(id_uporabnika),
+FOREIGN KEY(skakalec) REFERENCES tekmovalci(id)
 );
+
+GRANT CONNECT ON DATABASE sem2017_nikak TO javnost,kevins,andrejs;
+GRANT USAGE ON SCHEMA public TO javnost,kevins,andrejs;
+GRANT INSERT,DELETE,SELECT ON TABLE mojiskakalci TO javnost,kevins,andrejs;
+GRANT INSERT,SELECT ON TABLE rezultati TO javnost,kevins,andrejs;
+GRANT INSERT,SELECT,UPDATE ON TABLE uporabnik TO javnost,kevins,andrejs;
+GRANT INSERT,SELECT ON TABLE tekme TO javnost,kevins,andrejs;
+GRANT INSERT,SELECT ON TABLE tekmovalci TO javnost,kevins,andrejs;
+GRANT SELECT,USAGE ON SEQUENCE uporabnik_id_uporabnika_seq TO javnost,kevins,andrejs;
