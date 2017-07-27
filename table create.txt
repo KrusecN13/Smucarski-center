@@ -32,7 +32,8 @@ id_tekme INT,
 mesto INT,
 id_tekmovalca INT,
 FOREIGN KEY(id_tekme) REFERENCES tekme(id_tekme),
-FOREIGN KEY(id_tekmovalca) REFERENCES tekmovalci(id)
+FOREIGN KEY(id_tekmovalca) REFERENCES tekmovalci(id),
+PRIMARY KEY(id_tekme,id_tekmovalca)
 );
 
 
@@ -40,7 +41,8 @@ CREATE TABLE mojiskakalci(
 uporabnik INT,
 skakalec INT,
 FOREIGN KEY(uporabnik) REFERENCES uporabnik(id_uporabnika),
-FOREIGN KEY(skakalec) REFERENCES tekmovalci(id)
+FOREIGN KEY(skakalec) REFERENCES tekmovalci(id),
+PRIMARY KEY(uporabnik,skakalec)
 );
 
 GRANT CONNECT ON DATABASE sem2017_nikak TO javnost,kevins,andrejs;

@@ -1,1 +1,0 @@
-mesto,id_tekmovalca,prvi_skok,prvi_tocke,drugi_skok,drugi_tocke,skupaj_tocke

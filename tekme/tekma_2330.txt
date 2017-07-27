@@ -1,6 +1,0 @@
-mesto,id_tekmovalca,prvi_skok,prvi_tocke,drugi_skok,drugi_tocke,skupaj_tocke
-1,68732,92.0,,,,105.5
-2,89816,71.0,,,,59.0
-3,89813,68.5,,,,53.5
-4,92118,67.0,,,,47.5
-5,90881,65.5,,,,44.5
